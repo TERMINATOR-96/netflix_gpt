@@ -16,7 +16,8 @@
 - Update profile
 - BugFix: Sign up user displayName and profile picture update
 - BugFix: if the user is not logged in redirect /browse to Login page and vice-versa
-- Fetch from TMDB movies
+- Unsubscribed to the onAuthStateChanged callback
+- Add hardcodedvalues to the constant files.
 
 # Features
 - Login / Signup
