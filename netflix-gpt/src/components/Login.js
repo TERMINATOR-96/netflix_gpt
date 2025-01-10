@@ -23,11 +23,8 @@ const Login = () => {
     //handleButtonClick function
     const handleButtonClick = () => {
         //validate the form data
-        // console.log(email.current.value);
-        // console.log(password.current.value);
         const message = checkValidData(email.current.value, password.current.value);
         // when message is null then it means that condition is successfully passed and nothing will show in console
-        // console.log(message);
         setErrorMessage(message);
         if(message) return;
         //Sign In or Sign Up logic
@@ -56,7 +53,6 @@ const Login = () => {
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                console.log(user);
             })
             .catch((error) => {
                 const errorCode = error.code;
