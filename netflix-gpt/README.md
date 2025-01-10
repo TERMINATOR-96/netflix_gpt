@@ -34,7 +34,9 @@
 - TMDB image cdn url
 - Made the browser page amazing with Tailwind CSS
 - usePopular custom hook
-- GPT search feature
+- GPT search page
+- GPT search bar
+- (Bonus) Multi-language feature in our app
 
 # Features
 - Login / Signup
