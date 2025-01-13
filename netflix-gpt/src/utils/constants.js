@@ -5,8 +5,8 @@ export const photoURL = "https://avatars.githubusercontent.com/u/36603319?v=4";
 export const API_OPTIONS = {
     method: 'GET',
     headers: {
-      accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5MTNkZDNhMmU5YTI0NDAwMTc4MDAyZTdhNDI5ZWU0OCIsIm5iZiI6MTczNjEwNjkzMi4yMjQsInN1YiI6IjY3N2FlM2I0MjVlMGU5MWM1Nzc0ZjM5NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.6qsuSy7Vg1_id2JkEKJQ3H2N1RGyZo8CYd6pZJ2Ow7E'
+      accept: "application/json",
+      Authorization: "Bearer " + process.env.REACT_APP_TMDB_KEY
     }
   };
 
@@ -20,4 +20,4 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "spanish", name: "Spanish" }
 ];
 
-export const OPENAI_KEY = "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";
+export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;

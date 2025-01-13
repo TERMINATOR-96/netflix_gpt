@@ -1,12 +1,14 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
+import { useDispatch, useSelector } from "react-redux";
 import { addPopularMovies } from "../utils/moviesSlice";
 
 //hooks is a normal javascript function
 const usePopularMovies = () => {
     //fetch data from TMDB API and update store
     const dispatch = useDispatch();
+    //using memoization to reduce the number of API calls
+    const popularMovies = useSelector((store) => store.movies.popularMovies);
 
     //api call to fetch data from TMDB api
     const getPopularMovies = async () => {
@@ -18,7 +20,7 @@ const usePopularMovies = () => {
 
     //we have to call this api only once when the component is rendered
     useEffect(() => {
-        getPopularMovies();
+        !popularMovies && getPopularMovies();
     }, []); //empty square brackets we want to call this api only once
 };
 
