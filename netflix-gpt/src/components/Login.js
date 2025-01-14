@@ -4,9 +4,9 @@ import { auth } from "../utils/firebase";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { updateProfile } from "firebase/auth";
-import { photoURL } from "../utils/constants";
 import {checkValidData} from "../utils/validate";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { BACKGROUND_URL, photoURL } from "../utils/constants";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
@@ -23,11 +23,8 @@ const Login = () => {
     //handleButtonClick function
     const handleButtonClick = () => {
         //validate the form data
-        // console.log(email.current.value);
-        // console.log(password.current.value);
         const message = checkValidData(email.current.value, password.current.value);
         // when message is null then it means that condition is successfully passed and nothing will show in console
-        // console.log(message);
         setErrorMessage(message);
         if(message) return;
         //Sign In or Sign Up logic
@@ -56,7 +53,6 @@ const Login = () => {
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                console.log(user);
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -71,13 +67,14 @@ const Login = () => {
             <Header />
             <div className="absolute">
                 <img
-                    src="https://assets.nflxext.com/ffe/siteui/vlv3/2f5a878d-bbce-451b-836a-398227a34fbf/web/IN-en-20241230-TRIFECTA-perspective_5ab944a5-1a71-4f6d-b341-8699d0491edd_large.jpg"
+                    className="h-screen object-cover"
+                    src={BACKGROUND_URL}
                     alt="background_image"
                 />
             </div>
             <form 
                 onSubmit = {(e) => e.preventDefault()}
-                className="w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
+                className="w-full md:w-3/12 absolute p-12 bg-black my-36 mx-auto right-0 left-0 text-white rounded-lg bg-opacity-80"
             > 
                 <h1 className="font-bold text-3xl py-4">
                     {isSignInForm ? "Sign In" : "Sign Up"}
